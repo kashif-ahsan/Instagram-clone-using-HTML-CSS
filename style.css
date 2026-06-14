@@ -1,0 +1,516 @@
+/* Base Root Variables & System Reset Settings */
+:root {
+    --bg-color: #f3f0f7;
+    --phone-bg: #ffffff;
+    --border-color: #e2e2e2;
+    --wireframe-gray: #dbdbdb;
+    --wireframe-dark: #8e8e8e;
+    
+    /* Instagram Themed Pink/Purple Gradient Values */
+    --gradient-start: #ffaf7b;
+    --gradient-mid: #e95950;
+    --gradient-end: #bc1888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Master Mockup Container Row Alignment Grid */
+.mockup-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Uniform Individual Mobile Frame Shell Container */
+.phone-screen {
+    background-color: var(--phone-bg);
+    width: 360px;
+    height: 680px;
+    border-radius: 36px;
+    border: 10px solid #000000;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Shared Resusable Decorative wireframe blocks */
+.pink-gradient {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+}
+
+.bar-placeholder {
+    height: 10px;
+    background-color: var(--wireframe-gray);
+    border-radius: 4px;
+    display: inline-block;
+}
+.bar-placeholder.short { width: 40px; }
+.bar-placeholder.med { width: 80px; }
+.bar-placeholder.long { width: 140px; }
+
+/* --- SYSTEM TOP STATUS BAR MOCKUP --- */
+.status-bar {
+    height: 24px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #000000;
+    z-index: 10;
+}
+.status-icons {
+    display: flex;
+    gap: 6px;
+}
+
+/* --- APP SCREEN GENERIC HEADER NAVIGATION LAYOUT --- */
+.screen-header {
+    height: 52px;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.header-right-icons {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+/* Wireframe specific simulated placeholders */
+.username-placeholder {
+    width: 100px;
+    height: 14px;
+    background-color: var(--wireframe-dark);
+    border-radius: 4px;
+}
+
+.logo-placeholder {
+    width: 110px;
+    height: 28px;
+    background-color: var(--wireframe-gray);
+    border-radius: 6px;
+}
+
+/* Red Indicator Dot over Add Icon Wrap */
+.notification-dot-wrapper {
+    position: relative;
+}
+.notification-dot-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 6px;
+    height: 6px;
+    background-color: #ed4956;
+    border-radius: 50%;
+}
+
+/* --- CENTRAL INDEPENDENT SCROLLING VIEWS --- */
+.screen-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+/* Hide standard native vertical scrollbars */
+.screen-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- BOTTOM GENERAL STICKY NAVIGATION TABS BAR --- */
+.bottom-nav {
+    height: 52px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--phone-bg);
+    font-size: 20px;
+}
+
+/* Inactive icon colors default to gray */
+.bottom-nav i {
+    color: var(--wireframe-dark);
+}
+
+.nav-avatar-thumb {
+    width: 24px;
+    height: 24px;
+    background-color: var(--wireframe-gray);
+    border-radius: 50%;
+    border: 1px solid transparent;
+}
+
+/* Class to illuminate the current selected menu item */
+.bottom-nav i.active-nav {
+    color: #000000;
+}
+.nav-avatar-thumb.active-nav {
+    background-color: var(--wireframe-dark);
+    border: 1.5px solid #000000;
+}
+
+/* ==========================================================================
+   SCREEN 1 CONFIGURATIONS: PROFILE INTERFACE LAYOUT 
+   ========================================================================= */
+.profile-info-section {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    gap: 24px;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+}
+
+.avatar.main-avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+}
+
+.add-story-btn {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background-color: #0095f6;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.profile-stats {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 12px;
+}
+
+.stat-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-bio {
+    padding: 0 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile-actions {
+    display: flex;
+    padding: 0 16px 16px;
+    gap: 8px;
+}
+
+.action-btn-placeholder {
+    flex: 1;
+    height: 28px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+.action-btn-placeholder:first-child {
+    flex: 1.2;
+}
+
+/* Stories Highlights Section */
+.highlights-container {
+    display: flex;
+    gap: 14px;
+    padding: 8px 16px 16px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.highlight-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.highlight-circle.empty {
+    border: 1px solid var(--wireframe-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--wireframe-dark);
+    font-size: 14px;
+}
+
+/* Tabs switcher styling bar */
+.profile-tabs {
+    display: flex;
+    height: 44px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--wireframe-dark);
+    font-size: 18px;
+}
+
+.tab-item.active {
+    color: #000000;
+    border-bottom: 1.5px solid #000000;
+}
+
+/* Photo grid using CSS Grid Layout */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding-top: 2px;
+}
+
+.grid-square {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   SCREEN 2 CONFIGURATIONS: HOME STREAM TRAFFIC LAYOUT
+   ========================================================================== */
+.stories-tray {
+    display: flex;
+    gap: 14px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    overflow-x: auto;
+}
+
+.story-ring {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    background: #e2e2e2;
+}
+
+.story-ring.active {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+.story-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--phone-bg);
+    border: 2px solid var(--phone-bg);
+}
+.story-avatar.pink-gradient {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+/* Individual Post Card layout structural styles */
+.feed-post {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.post-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--wireframe-gray);
+    margin-right: 10px;
+}
+
+.post-user-meta {
+    flex: 1;
+}
+
+.post-more-btn {
+    font-size: 14px;
+    color: var(--wireframe-dark);
+}
+
+.post-media {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+}
+
+.post-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 14px;
+    font-size: 20px;
+}
+
+.left-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.post-details-content {
+    padding: 0 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Custom Notification Overlay component tag inside Nav bottom footer */
+.notification-indicator {
+    position: relative;
+}
+
+.notification-popup {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ed4956;
+    color: #ffffff;
+    font-size: 8px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    display: flex;
+    gap: 4px;
+}
+.notification-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px 4px 0;
+    border-style: solid;
+    border-color: #ed4956 transparent;
+}
+
+
+/* ==========================================================================
+   SCREEN 3 CONFIGURATIONS: SEARCH & EXPLORE PHOTO GRID LAYOUT
+   ========================================================================== */
+.search-header-layout {
+    gap: 12px;
+}
+
+.search-bar-input {
+    flex: 1;
+    background-color: #efefef;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--wireframe-dark);
+}
+
+.qr-icon {
+    font-size: 18px;
+    color: #000000;
+}
+
+/* Upper horizontal categories row */
+.explore-tags-container {
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    overflow-x: auto;
+}
+
+.tag-pill-mock {
+    height: 28px;
+    width: 60px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: var(--wireframe-dark);
+}
+.tag-pill-mock:first-child {
+    width: 38px;
+    color: #000000;
+}
+
+/* Complex Non-Uniform layout design constructed explicitly using CSS Grid areas */
+.explore-complex-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 118px;
+    gap: 2px;
+    padding: 0 2px;
+}
+
+.explore-item {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Adding tiny overlay indicator dots on items like the original mockup */
+.explore-item::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+/* Defining the custom matrix shape spacing rules */
+.item-1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+.item-2 { grid-column: 2 / 4; grid-row: 1 / 3; } /* Large Block */
+.item-3 { grid-column: 1 / 2; grid-row: 2 / 3; }
+.item-4 { grid-column: 1 / 2; grid-row: 3 / 4; }
+.item-5 { grid-column: 2 / 3; grid-row: 3 / 4; }
+.item-6 { grid-column: 3 / 4; grid-row: 3 / 4; }
+.item-7 { grid-column: 1 / 2; grid-row: 4 / 5; }
